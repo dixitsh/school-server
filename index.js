@@ -11,7 +11,6 @@ const app = express();
 app.use(bodyParser.json({ limit: "20mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "20mb", extended: true }));
 app.use(cors());
-
 app.use('/students', studentRoutes);
 
 
@@ -22,10 +21,5 @@ mongoose.connect(CONNECTION_URL,{
 }).then(()=>app.listen(PORT, ()=>
 console.log(`Connection is established and running on port: ${PORT}`)
 )).catch((err)=>console.log(err.message));
-const http=require('http');
-const server=http.createServer((request, response=>{
-    console.log('req..');
-    response.rawListeners('hello');
-    response.end();
-}))
+
 // mongoose.set('useFindAndModify', false);
